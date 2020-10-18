@@ -239,4 +239,11 @@ public class Database {
       e.printStackTrace();
     }
   }
+  
+  public double getFrequencyByGenre(String genre){
+      if(size() == 0){
+          return 0;
+      }
+      return songLibrary.count( node -> node.data.getGenre().equalsIgnoreCase(genre) ? 1 : 0) / (double) size();
+  }
 }
